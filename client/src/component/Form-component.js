@@ -62,7 +62,6 @@ export default function Form(props) {
     const tagOnClick = index => {
         const devArr = cloneDeep(formInput.developers);
         devArr.splice(index, 1);
-        console.log(devArr);
         setFormInput({ ...formInput, developers: devArr});
     }
 
