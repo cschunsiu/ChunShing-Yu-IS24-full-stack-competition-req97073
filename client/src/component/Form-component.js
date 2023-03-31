@@ -62,6 +62,7 @@ export default function Form(props) {
     const tagOnClick = index => {
         const devArr = cloneDeep(formInput.developers);
         devArr.splice(index, 1);
+        console.log(devArr);
         setFormInput({ ...formInput, developers: devArr});
     }
 
@@ -167,6 +168,7 @@ export default function Form(props) {
                     </div>
                     <div style={{ columnGap: '20px', display: 'flex', flex: 1}}>
                         <TextField
+                            error={(formInput.developers && formInput.developers.length === 0)}
                             disabled={(formInput.developers && formInput.developers.length >= 5)}
                             label="Developers"
                             name="developers"
