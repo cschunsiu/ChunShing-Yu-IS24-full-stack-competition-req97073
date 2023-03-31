@@ -172,7 +172,7 @@ app.post('/api/products/search', (req, res, next) => {
  *                 description: Agile or Waterfall
  *                 example: 'Agile'
  *     responses:
- *       202:
+ *       201:
  *         description: Success
  *       400:
  *         description: Bad Request with invalid body object
