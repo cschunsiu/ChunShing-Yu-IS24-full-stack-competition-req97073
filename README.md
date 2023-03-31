@@ -17,9 +17,9 @@ Details on how to install are in the followings:
 
 ## Installation
 
-1. Once you have cloned the repo to your local machine, please redirect to your directory where this project is located.
+1. Once you have docker installed and cloned the repo to your local machine, please redirect to your directory where this project is located.
 
-2. Run `docker-compose up` command, this will utilize docker to install the application
+2. Run `docker-compose up` command, this will create a docker image and load in the container.
 
 3. If project has print out `Server started on port 3000`, then you have successfully launched the project.
 
