@@ -85,6 +85,7 @@ const prePopulateData = () => {
     ];
     let activeProductCounter = 3;
 
+    // generate random products in a loop
     while (productNameArr.length !== 0) {
         const randomProductIndex = Util.generateIntInclusive(0, productNameArr.length-1);
         const randomProductOwnerIndex = Util.generateIntInclusive(0, productOwnerNameArr.length-1);
@@ -120,7 +121,6 @@ const getProducts = () => {
     console.log('Service: get products');
     try {
         const storage = Util.getStorageInstance();
-
         const dataSet = storage.get('data');
 
         return dataSet.data;
@@ -183,6 +183,7 @@ const createProduct = (product) => {
         // get the next sequence productId
         const nextProductIndex = dataSet.productIdStartingSequence;
 
+        // create product object
         const productObj = {
             ...product,
             productId: nextProductIndex
@@ -199,7 +200,7 @@ const createProduct = (product) => {
 const updateProduct = (product) => {
     console.log(`Service: update product: ${JSON.stringify(product)}`);
     try {
-        // check if product is empty, cannot update to nothing
+        // check if product is empty, cannot update from nothing
         if (Util.checkIsEmpty(product)) {
             const err = new Error('Cannot accept empty object');
             err.status = 400;
@@ -267,7 +268,7 @@ const getProductsBySearchTerm = (requirement) => {
         const dataSet = storage.get('data');
         const resultSet = [];
 
-        // always return if term is empty
+        // always return if term is empty or null
         if (isEmpty(term)) {
             return dataSet.data;
         }
